@@ -22,7 +22,7 @@ class SimpleMavenProjectApplicationTests {
 
     @Test
     public void testFactorial() {
-        int result = factorial(3);
+        int result = factorial(2);
         assertEquals(6, result);
     }
 
