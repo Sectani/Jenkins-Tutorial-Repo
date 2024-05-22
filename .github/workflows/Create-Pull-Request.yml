@@ -1,4 +1,4 @@
-name: Automated Pull Request
+name: Automated Pull Request ana Merge
 
 on:
   push:
@@ -23,3 +23,14 @@ jobs:
           This is an automated pull request created upon pushing changes to the dev branch.
         base: master  # The branch where changes will be merged
         head: dev   # The branch from which changes are pushed
+        
+  automerge:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Enable auto-merge
+      uses: peter-evans/enable-pull-request-automerge@v3
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        merge-method: squash
+        commit-message: 'Auto-merge pull request #${{ github.event.pull_request.number }}'
