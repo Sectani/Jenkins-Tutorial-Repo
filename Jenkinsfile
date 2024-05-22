@@ -12,13 +12,9 @@ pipeline {
         stage('Build') {
             steps {
                 // Here, we can can run Maven commands
-                script {
-                    
-                    //def currentDir = pwd()
-                    //echo "Current directory: ${currentDir}"
-                    sh 'ls'
-                    //sh 'mvn clean test package'
-                    //sh "java -jar target/maven-0.0.1-SNAPSHOT.jar"
+                script {  
+                    sh 'mvn clean test package simple-maven-project'
+                    sh "java -jar simple-maven-project/target/maven-0.0.1-SNAPSHOT.jar"
                 }                    
                    
             }
