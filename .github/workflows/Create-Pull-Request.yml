@@ -1,7 +1,11 @@
 name: Create Pull Request Example Command
 on:
-  repository_dispatch:
-    types: [create-pull-request]
+  #repository_dispatch:
+    #types: [create-pull-request]
+  push:
+    branches:
+      - dev
+      
 jobs:
   createPullRequest:
     runs-on: ubuntu-latest
