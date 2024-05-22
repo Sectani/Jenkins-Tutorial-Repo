@@ -24,7 +24,7 @@ jobs:
         base: master  # The branch where changes will be merged
         head: dev   # The branch from which changes are pushed
         
-  automerge:
+  merge:
     runs-on: ubuntu-latest
     
     steps:
@@ -32,5 +32,5 @@ jobs:
       uses: peter-evans/enable-pull-request-automerge@v3
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        merge-method: squash
-        commit-message: 'Auto-merge pull request #${{ github.event.pull_request.number }}'
+        repository: ${{ github.repository }}
+        pull-request-number: ${{ github.event.pull_request.number }}
