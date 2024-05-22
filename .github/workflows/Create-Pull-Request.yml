@@ -21,4 +21,5 @@ jobs:
         title: Automated Pull Request
         body: |
           This is an automated pull request created upon pushing changes to the dev branch.
-        branch: dev
+        base: master  # The branch where changes will be merged
+        head: dev   # The branch from which changes are pushed
