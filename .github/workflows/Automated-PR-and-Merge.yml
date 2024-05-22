@@ -23,12 +23,3 @@ jobs:
           This is an automated pull request created upon pushing changes to the dev branch.
         base: master  # The branch where changes will be merged
         head: dev   # The branch from which changes are pushed
-        
-  merge:
-    runs-on: ubuntu-latest
-    
-    steps:
-    - name: Enable auto-merge
-      uses: peter-evans/enable-pull-request-automerge@v3
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
