@@ -14,22 +14,24 @@ pipeline {
                 // Here, we can can run Maven commands
                 script {
                     
-                    def currentDir = pwd()
-                    echo "Current directory: ${currentDir}"
-                    
-                    // Navigate to the directory containing the Maven project
-                   // dir('java-maven/maven') {
-                        // Run Maven commands
-                     //   sh 'mvn clean test package'
-                       // sh "java -jar target/maven-0.0.1-SNAPSHOT.jar"
+                    //def currentDir = pwd()
+                    //echo "Current directory: ${currentDir}"
+                    sh 'ls'
+                    //sh 'mvn clean test package'
+                    //sh "java -jar target/maven-0.0.1-SNAPSHOT.jar"
                 }                    
                    
             }
         }
-        stage('Slack') {
-            steps {
-                slackSend(message: "Build succeeded: ${env.JOB_NAME} [${env.BUILD_NUMBER}] (<${env.BUILD_URL}|Open>)")
-            }
+    }
+
+     post {
+        success {
+            slackSend(channel: '#Jenkins-Canal', color: 'good', message: "Build succeeded: ${env.JOB_NAME} [${env.BUILD_NUMBER}] (<${env.BUILD_URL}|Open>)")
+        }
+        failure {
+            slackSend(channel: '#Jenkins-Canal', color: 'danger', message: "Build failed: ${env.JOB_NAME} [${env.BUILD_NUMBER}] (<${env.BUILD_URL}|Open>)")
         }
     }
+    
 }
