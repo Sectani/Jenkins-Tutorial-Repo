@@ -34,8 +34,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-      - uses: actions/checkout@v4
+      #- name: Checkout repository
+      #- uses: actions/checkout@v4
       
       - name: Create Pull Request
         id: create_pr
@@ -51,8 +51,8 @@ jobs:
     needs: create-pull-request
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-      - uses: actions/checkout@v4
+      #- name: Checkout repository
+      #- uses: actions/checkout@v4
 
       - name: Merge Pull Request
         id: merge_pr
