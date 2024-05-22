@@ -14,7 +14,7 @@ pipeline {
                 // Here, we can can run Maven commands
                 script {  
                     sh 'mvn clean test package --file simple-maven-project/pom.xml'
-                    sh "java -jar simple-maven-project/target/maven-0.0.1-SNAPSHOT.jar"
+                    sh "java -jar simple-maven-project/target/*.jar"
                 }                    
                    
             }
