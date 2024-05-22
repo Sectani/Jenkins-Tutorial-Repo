@@ -1,4 +1,5 @@
 pipeline {
+    
     agent any
 
     stages {
@@ -21,10 +22,13 @@ pipeline {
                         // Run Maven commands
                      //   sh 'mvn clean test package'
                        // sh "java -jar target/maven-0.0.1-SNAPSHOT.jar"
-                    }
-                    
+                }                    
                    
-                }
+            }
+        }
+        stage('Slack') {
+            steps {
+                slackSend(message: "Build succeeded: ${env.JOB_NAME} [${env.BUILD_NUMBER}] (<${env.BUILD_URL}|Open>)")
             }
         }
     }
