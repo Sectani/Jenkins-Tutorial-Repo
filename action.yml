@@ -83,9 +83,6 @@ outputs:
     description: 'The pull request operation performed by the action, `created`, `updated` or `closed`.'
   pull-request-head-sha:
     description: 'The commit SHA of the pull request branch.'
-runs:
-  using: 'node20'
-  main: 'dist/index.js'
 branding:
   icon: 'git-pull-request'
   color: 'gray-dark'
